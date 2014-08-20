@@ -509,7 +509,7 @@ namespace ServiceStack.Html
                     break;
                 default:
                     string attemptedValue = (string)htmlHelper.GetModelStateValue(fullName, typeof(string));
-                    tagBuilder.MergeAttribute("value", attemptedValue ?? ((useViewData) ? htmlHelper.EvalString(fullName, format) : valueParameter), isExplicitValue);
+                    tagBuilder.MergeAttribute("value", ((useViewData) ? htmlHelper.EvalString(fullName, format) : valueParameter) ?? attemptedValue, isExplicitValue);
                     break;
             }
 
